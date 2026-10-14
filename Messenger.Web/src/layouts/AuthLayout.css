@@ -1,0 +1,202 @@
+/* Background Gradient Mesh Teal Sâu */
+.auth-layout-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 35%, #225a66 0%, #112c34 55%, #09171c 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+
+/* Wrapper Trung Tâm - Tăng kích thước từ 360px lên 480px */
+.auth-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* Header Title - Cỡ chữ to và giãn cách rộng hơn */
+.auth-header-title {
+  color: #e0f2f1;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 36px;
+  text-transform: uppercase;
+}
+
+/* Card Khung Đen Sẫm - Tăng Padding */
+.auth-card-dark {
+  width: 100%;
+  background-color: #0f1c21;
+  border-radius: 4px;
+  padding: 44px 38px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+/* Khung Nút Chuyển Tab Bên Dưới */
+.toggle-card-block {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #0f1c21;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+}
+
+.toggle-card-btn {
+  width: 100%;
+  padding: 20px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-card-btn:hover {
+  background-color: #17282f;
+}
+
+/* Input Boxes - Tăng chiều cao lên 56px, chữ to hơn */
+.custom-input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 58px;
+  margin-bottom: 22px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.custom-input-icon {
+  width: 60px;
+  height: 60%; /* Chiều cao vạch ngăn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #666666;
+  font-size: 20px;
+  border-right: 1.5px solid #e5e7eb; /* Vạch kẻ sọc ngăn cách chuẩn mẫu */
+}
+
+.custom-input-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 18px;
+  font-size: 16px;
+  color: #333333;
+}
+
+.custom-input-field::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* Row Tuỳ Chọn */
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  color: #a0aec0;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.forgot-link-dark {
+  color: #a0aec0;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.forgot-link-dark:hover {
+  color: #ffffff;
+}
+
+/* Submit Button Teal - Chiều cao 56px, chữ to rõ */
+.btn-teal {
+  width: 100%;
+  height: 56px;
+  background-color: #47818e;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-teal:hover {
+  background-color: #5394a3;
+}
+
+.btn-teal:disabled {
+  background-color: #2b4f57;
+  cursor: not-allowed;
+}
+
+.error-box-dark {
+  width: 100%;
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Styling Icon User Avatar Tròn */
+.user-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.user-avatar-svg {
+  width: 80px;
+  height: 80px;
+  color: #47818e; /* Màu Teal đồng bộ nút Login */
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}

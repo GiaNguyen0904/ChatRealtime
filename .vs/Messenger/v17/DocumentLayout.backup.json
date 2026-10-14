@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\ChatRealtime\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|c:\\chatrealtime\\messenger.application\\friends\\services\\friendshipservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|solutionrelative:messenger.application\\friends\\services\\friendshipservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|c:\\chatrealtime\\messenger.application\\friends\\services\\friendrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|solutionrelative:messenger.application\\friends\\services\\friendrequestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|c:\\chatrealtime\\messenger.application\\users\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|solutionrelative:messenger.application\\users\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D70BB8E5-E5EC-4CD8-BBB3-436FF86AB98F}|Messenger.UnitTests\\Messenger.UnitTests.csproj|c:\\chatrealtime\\messenger.unittests\\application\\friend\\friendservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D70BB8E5-E5EC-4CD8-BBB3-436FF86AB98F}|Messenger.UnitTests\\Messenger.UnitTests.csproj|solutionrelative:messenger.unittests\\application\\friend\\friendservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|c:\\chatrealtime\\messenger.application\\friends\\dtos\\sendfriendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25284AD5-A614-45E2-B98C-D2ED317D164D}|Messenger.Application\\Messenger.Application.csproj|solutionrelative:messenger.application\\friends\\dtos\\sendfriendrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\ChatRealtime\\Messenger.Application\\Users\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Messenger.Application\\Users\\Services\\UserService.cs",
+              "ToolTip": "C:\\ChatRealtime\\Messenger.Application\\Users\\Services\\UserService.cs",
+              "RelativeToolTip": "Messenger.Application\\Users\\Services\\UserService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAmwDEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-05T17:22:20.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FriendshipService.cs",
+              "DocumentMoniker": "C:\\ChatRealtime\\Messenger.Application\\Friends\\Services\\FriendshipService.cs",
+              "RelativeDocumentMoniker": "Messenger.Application\\Friends\\Services\\FriendshipService.cs",
+              "ToolTip": "C:\\ChatRealtime\\Messenger.Application\\Friends\\Services\\FriendshipService.cs",
+              "RelativeToolTip": "Messenger.Application\\Friends\\Services\\FriendshipService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAcwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-05T17:19:21.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FriendRequestService.cs",
+              "DocumentMoniker": "C:\\ChatRealtime\\Messenger.Application\\Friends\\Services\\FriendRequestService.cs",
+              "RelativeDocumentMoniker": "Messenger.Application\\Friends\\Services\\FriendRequestService.cs",
+              "ToolTip": "C:\\ChatRealtime\\Messenger.Application\\Friends\\Services\\FriendRequestService.cs",
+              "RelativeToolTip": "Messenger.Application\\Friends\\Services\\FriendRequestService.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAiwJoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-05T17:02:47.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FriendServiceTests.cs",
+              "DocumentMoniker": "C:\\ChatRealtime\\Messenger.UnitTests\\Application\\Friend\\FriendServiceTests.cs",
+              "RelativeDocumentMoniker": "Messenger.UnitTests\\Application\\Friend\\FriendServiceTests.cs",
+              "ToolTip": "C:\\ChatRealtime\\Messenger.UnitTests\\Application\\Friend\\FriendServiceTests.cs",
+              "RelativeToolTip": "Messenger.UnitTests\\Application\\Friend\\FriendServiceTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-05T17:02:16.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SendFriendRequestDto.cs",
+              "DocumentMoniker": "C:\\ChatRealtime\\Messenger.Application\\Friends\\DTOs\\SendFriendRequestDto.cs",
+              "RelativeDocumentMoniker": "Messenger.Application\\Friends\\DTOs\\SendFriendRequestDto.cs",
+              "ToolTip": "C:\\ChatRealtime\\Messenger.Application\\Friends\\DTOs\\SendFriendRequestDto.cs",
+              "RelativeToolTip": "Messenger.Application\\Friends\\DTOs\\SendFriendRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-02T16:06:57.755Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
