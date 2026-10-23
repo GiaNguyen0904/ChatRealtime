@@ -4,12 +4,16 @@ import { conversationService, type ConversationDto, type MessageDto, type Conver
 interface ChatState {
   conversations: ConversationDto[];
   messages: MessageDto[];
-  members: ConversationMemberDto[]; 
+  members: ConversationMemberDto[];
   isLoadingConversations: boolean;
   isLoadingMessages: boolean;
   activeConversationId: number | null;
   typingUsers: Record<number, Record<number, boolean>>; // conversationId -> { [userId]: boolean }
+  onlineUsers: number[]; // danh sách userId đang online realtime
 
+  setOnlineUsers: (users: number[]) => void;
+  setUserOnline: (userId: number) => void;
+  setUserOffline: (userId: number) => void;
   fetchConversations: () => Promise<void>;
   fetchMessages: (conversationId: number) => Promise<MessageDto[]>;
   fetchMembers: (conversationId: number) => Promise<void>;
@@ -35,6 +39,20 @@ export const useChatStore = create<ChatState>((set, get) => ({
   isLoadingMessages: false,
   activeConversationId: null,
   typingUsers: {},
+  onlineUsers: [],
+
+  setOnlineUsers: (users) => set({ onlineUsers: users }),
+
+  setUserOnline: (userId) =>
+    set((state) => {
+      if (state.onlineUsers.includes(userId)) return state;
+      return { onlineUsers: [...state.onlineUsers, userId] };
+    }),
+
+  setUserOffline: (userId) =>
+    set((state) => ({
+      onlineUsers: state.onlineUsers.filter((id) => id !== userId),
+    })),
 
   fetchConversations: async () => {
     set({ isLoadingConversations: true });
@@ -49,28 +67,28 @@ export const useChatStore = create<ChatState>((set, get) => ({
   },
 
   fetchMessages: async (conversationId) => {
-  set({ isLoadingMessages: true, messages: [] });
+    set({ isLoadingMessages: true, messages: [] });
 
-  try {
-    const res = await conversationService.getMessages(conversationId);
+    try {
+      const res = await conversationService.getMessages(conversationId);
 
-    console.log('================================');
-    console.log('CONVERSATION ID:', conversationId);
-    console.log('MESSAGES FROM API:', res.data.length);
-    console.log('MESSAGES:', res.data);
-    console.log('================================');
+      console.log('================================');
+      console.log('CONVERSATION ID:', conversationId);
+      console.log('MESSAGES FROM API:', res.data.length);
+      console.log('MESSAGES:', res.data);
+      console.log('================================');
 
-    set({ messages: res.data });
+      set({ messages: res.data });
 
-    return res.data;
-  } catch (error) {
-    console.error('Failed to fetch messages:', error);
-    return [];
-  } finally {
-    set({ isLoadingMessages: false });
-  }
-},
-fetchMembers: async (conversationId) => {
+      return res.data;
+    } catch (error) {
+      console.error('Failed to fetch messages:', error);
+      return [];
+    } finally {
+      set({ isLoadingMessages: false });
+    }
+  },
+  fetchMembers: async (conversationId) => {
     try {
       const res = await conversationService.getMembers(conversationId);
       set({ members: res.data });
@@ -91,7 +109,7 @@ fetchMembers: async (conversationId) => {
     } catch (error) {
       console.error('Failed to send message:', error);
     }
-},
+  },
 
   markAsRead: async (conversationId, messageId) => {
     try {
@@ -141,14 +159,14 @@ fetchMembers: async (conversationId) => {
     }
   },
 
-  changeGroupTitle: async (conversationId: number, newTitle: string ) => {
+  changeGroupTitle: async (conversationId: number, newTitle: string) => {
     try {
-        await conversationService.changeGroupTitle(conversationId, { newTitle });
-        await get().fetchConversations(); // Load lại sidebar để thấy tên mới
+      await conversationService.changeGroupTitle(conversationId, { newTitle });
+      await get().fetchConversations(); // Load lại sidebar để thấy tên mới
     } catch (error) {
-        console.error('Failed to change group title', error);
+      console.error('Failed to change group title', error);
     }
-},
+  },
 
 
   setActiveConversationId: (id) => set({ activeConversationId: id }),
@@ -213,3 +231,4 @@ fetchMembers: async (conversationId) => {
     }
   },
 }));
+

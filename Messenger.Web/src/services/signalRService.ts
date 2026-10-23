@@ -90,6 +90,18 @@ class SignalRService {
       }
     );
 
+    connection.on("GetOnlineUsers", (users: number[]) => {
+      useChatStore.getState().setOnlineUsers(users);
+    });
+
+    connection.on("UserIsOnline", (userId: number) => {
+      useChatStore.getState().setUserOnline(userId);
+    });
+
+    connection.on("UserIsOffline", (userId: number) => {
+      useChatStore.getState().setUserOffline(userId);
+    });
+
     // Xử lý khi kết nối bị đóng hoàn toàn
     connection.onclose((error) => {
       console.warn("[SignalR] Connection closed:", error);

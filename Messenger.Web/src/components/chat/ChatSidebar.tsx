@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosClient from '../../api/axiosClient';
+import { useChatStore } from '../../stores/useChatStore';
 
 export interface ConversationItem {
   id: number;
@@ -9,6 +10,7 @@ export interface ConversationItem {
   avatar: string;
   unreadCount: number;
   type: 'PRIVATE' | 'GROUP' | string;
+  otherUserId?: number;
 }
 
 // Tái sử dụng DTO tìm kiếm User
@@ -43,6 +45,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
   onLeaveGroup,
   onCreateGroup
 }) => {
+  const onlineUsers = useChatStore((state) => state.onlineUsers);
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
 
   // --- STATE CHO MODAL TẠO NHÓM ---
@@ -142,6 +145,7 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
             {conversations.map((chat) => {
               const isActive = selectedChatId === chat.id;
               const isGroupChat = chat.type?.toUpperCase() === 'GROUP'; 
+              const isOnline = !isGroupChat && chat.otherUserId ? onlineUsers.includes(chat.otherUserId) : false;
 
               return (
                 <div
@@ -153,6 +157,12 @@ export const ChatSidebar: React.FC<ChatSidebarProps> = ({
                 >
                   <div className="w-10 h-10 bg-gray-200 text-gray-700 font-bold rounded-full flex items-center justify-center text-xs flex-shrink-0 relative">
                     {chat.avatar}
+                    {isOnline && (
+                      <span 
+                        className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full" 
+                        title="Đang hoạt động"
+                      />
+                    )}
                     {chat.unreadCount > 0 && (
                       <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
                         {chat.unreadCount}

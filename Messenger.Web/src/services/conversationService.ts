@@ -7,6 +7,7 @@ export interface ConversationDto {
   title: string | null;
   updatedAt: string;
   unreadCount: number;
+  otherUserId?: number;
 }
 
 export interface SeenByDto {
