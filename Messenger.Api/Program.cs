@@ -1,4 +1,4 @@
-﻿using Messenger.Api.Middleware;
+using Messenger.Api.Middleware;
 using Messenger.Infrastructure;
 using Messenger.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -99,6 +99,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 builder.Services.AddSignalR();
+builder.Services.AddSingleton<Messenger.Api.Hubs.PresenceTracker>();
 builder.Services.AddScoped<IChatNotificationService, ChatNotificationService>();
 var app = builder.Build();
 //test db connection 

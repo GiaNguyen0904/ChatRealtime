@@ -83,6 +83,7 @@ export const ChatPage: React.FC = () => {
     time: new Date(c.updatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     avatar: c.title ? c.title.substring(0, 2).toUpperCase() : 'PC',
     unreadCount: c.unreadCount,
+    otherUserId: c.otherUserId,
   }));
 
   const currentChat = mappedConversations.find((c) => c.id === activeChatId);

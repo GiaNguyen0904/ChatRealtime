@@ -39,6 +39,7 @@ interface ChatWindowProps {
     name: string;
     avatar: string;
     type: 'PRIVATE' | 'GROUP' | string;
+    otherUserId?: number;
   };
   currentUserAvatar?: string;
   currentUserId: number;
@@ -68,7 +69,13 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
   onChangeNickname,
   onChangeGroupTitle,
 }) => {
+  const onlineUsers = useChatStore((state) => state.onlineUsers);
   const isGroup = currentChat?.type?.toUpperCase() === 'GROUP';
+  const otherMember = !isGroup
+    ? members.find((m) => m.userId !== currentUserId)
+    : null;
+  const targetUserId = currentChat?.otherUserId || otherMember?.userId;
+  const isTargetUserOnline = Boolean(targetUserId && onlineUsers.includes(targetUserId));
   
   const [showInfoPanel, setShowInfoPanel] = useState(false);
   const [isMembersOpen, setIsMembersOpen] = useState(true);
@@ -345,12 +352,32 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
         {/* HEADER */}
         <div className="p-3 px-4 border-b border-gray-100 flex items-center justify-between bg-white shadow-sm z-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gray-100 text-gray-700 font-bold rounded-full flex items-center justify-center text-sm">
+            <div className="w-10 h-10 bg-gray-100 text-gray-700 font-bold rounded-full flex items-center justify-center text-sm relative">
               {currentChat?.avatar}
+              {!isGroup && isTargetUserOnline && (
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" title="Đang hoạt động" />
+              )}
             </div>
             <div>
               <h3 className="font-bold text-[15px] text-gray-900 leading-tight">{currentChat?.name}</h3>
-              <span className="text-[12px] text-gray-500 font-medium">Đang hoạt động</span>
+              {!isGroup ? (
+                isTargetUserOnline ? (
+                  <span className="flex items-center gap-1.5 text-[12px] text-emerald-600 font-medium">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    Đang hoạt động
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1.5 text-[12px] text-gray-400 font-medium">
+                    <span className="w-2 h-2 rounded-full bg-gray-300"></span>
+                    Ngoại tuyến
+                  </span>
+                )
+              ) : (
+                <span className="flex items-center gap-1.5 text-[12px] text-gray-500 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  {members.filter(m => onlineUsers.includes(m.userId)).length} người trực tuyến
+                </span>
+              )}
             </div>
           </div>
 
@@ -534,12 +561,16 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
                 {members.map(member => {
                   const displayName = member.nickname || member.fullName;
                   const isUserMe = member.userId === currentUserId;
+                  const isMemberOnline = isUserMe || onlineUsers.includes(member.userId);
 
                   return (
                     <div key={member.userId} className="flex items-center justify-between p-2 hover:bg-gray-100 rounded-lg transition group">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 bg-gray-200 text-gray-700 rounded-full flex justify-center items-center text-xs font-bold">
+                        <div className="w-9 h-9 bg-gray-200 text-gray-700 rounded-full flex justify-center items-center text-xs font-bold relative">
                           {displayName.charAt(0).toUpperCase()}
+                          {isMemberOnline && (
+                            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" title="Trực tuyến" />
+                          )}
                         </div>
                         <div className="flex flex-col justify-center">
                           <p className="text-[14px] font-semibold text-gray-900 leading-none">

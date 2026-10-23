@@ -8,4 +8,5 @@ public class ConversationDto
     public string? Title { get; set; }
     public DateTime UpdatedAt { get; set; }
     public int UnreadCount { get; set; } // đếm số tin nhắn chưa đọc
+    public int? OtherUserId { get; set; } // Id của người đối thoại (dành cho Chat Private)
 }

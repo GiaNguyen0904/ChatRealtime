@@ -45,7 +45,8 @@ public class ConversationService : IConversationService
         var conversation = member.Conversation;
         string displayTitle = conversation.Title ?? "";
 
-        // 3. Xử lý tên cho Chat Private
+        // 3. Xử lý tên và ID người đối thoại cho Chat Private
+        int? otherUserId = null;
         if (conversation.Type == ConversationType.Private)
         {
             // Tìm người còn lại trong đoạn chat (dựa vào list allMembers đã query ở trên)
@@ -53,6 +54,7 @@ public class ConversationService : IConversationService
             
             if (otherMember != null)
             {
+                otherUserId = otherMember.UserId;
                 // NẾU CÓ BIỆT DANH THÌ LẤY BIỆT DANH, KHÔNG THÌ LẤY TÊN THẬT
                 displayTitle = !string.IsNullOrWhiteSpace(otherMember.Nickname) 
                                 ? otherMember.Nickname 
@@ -71,7 +73,8 @@ public class ConversationService : IConversationService
             Type = conversation.Type,
             Title = displayTitle,
             UpdatedAt = conversation.UpdatedAt,
-            UnreadCount = unreadcount
+            UnreadCount = unreadcount,
+            OtherUserId = otherUserId
         }); 
     }
 
